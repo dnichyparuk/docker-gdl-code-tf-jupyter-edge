@@ -1,0 +1,20 @@
+version: '3.5'
+services:
+    gdlcodegpue:
+        image: dnichyparuk/docker-gdl-code-edge:latest
+        container_name: gdl-code-gpu-e
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - /etc/localtime:/etc/localtime:ro
+            - /docker/gdl_code/work:/home/jovyan/work
+        ports:
+            - 8877:8888
+        restart: unless-stopped
+        privileged: true
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - driver: nvidia
+                          count: 1
+                          capabilities: [gpu]

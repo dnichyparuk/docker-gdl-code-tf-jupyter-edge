@@ -1,0 +1,1 @@
+docker build -t dnichyparuk/docker-gdl-code-edge:latest .
