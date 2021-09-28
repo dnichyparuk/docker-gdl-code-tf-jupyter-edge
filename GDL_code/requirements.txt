@@ -42,7 +42,7 @@ mistune
 more-itertools
 music21
 nbconvert
-nbformat
+nbformat==5.0.2
 networkx
 notebook
 numpy
