@@ -16,14 +16,14 @@ LABEL maintainer="Dzmitry Nichyparuk <dnichyparuk@gmail.com>"
 COPY GDL_code "/tf/GDL_code"
 WORKDIR "/tf/GDL_code"
 
-RUN apt-get update --yes & \
-    apt-get install --yes graphviz
-
 RUN python3 -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-WORKDIR "/tf"
+RUN add-apt-repository universe && \
+    apt-get update --yes && \
+    apt-get install --yes graphviz
 
+WORKDIR "/tf"
 EXPOSE 8888
 
 # Configure container startup

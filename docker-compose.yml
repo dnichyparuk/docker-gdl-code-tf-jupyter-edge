@@ -6,15 +6,9 @@ services:
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
             - /etc/localtime:/etc/localtime:ro
-            - /docker/gdl_code/work:/home/jovyan/work
+            - /docker/gdl_code/work:/tf/work
         ports:
             - 8877:8888
         restart: unless-stopped
         privileged: true
-        deploy:
-            resources:
-                reservations:
-                    devices:
-                        - driver: nvidia
-                          count: 1
-                          capabilities: [gpu]
+        runtime: nvidia
