@@ -95,3 +95,4 @@ Werkzeug
 widgetsnbextension
 wrapt
 zipp
+pydot
